@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>TERRAMOVA AR</title>
+
+  <script src="https://unpkg.com/mind-ar@1.2.3/dist/mindar-image.prod.js"></script>
+  <script src="https://unpkg.com/aframe@1.4.2/dist/aframe.min.js"></script>
+</head>
+
+<body>
+  <a-scene 
+    mindar-image="imageTargetSrc: targets.mind;"
+    color-space="sRGB" 
+    embedded 
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: true">
+
+    <a-assets>
+      <a-asset-item id="mova" src="mova.glb"></a-asset-item>
+      <a-asset-item id="map" src="mapfin.glb"></a-asset-item>
+      <a-asset-item id="like" src="likefin.glb"></a-asset-item>
+      <a-asset-item id="flash" src="flashfin.glb"></a-asset-item>
+      <a-asset-item id="security" src="segurityfin.glb"></a-asset-item>
+      <a-asset-item id="love" src="notilovefin.glb"></a-asset-item>
+      <a-asset-item id="logo" src="logocolores.glb"></a-asset-item>
+    </a-assets>
+
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+    <a-entity mindar-image-target="targetIndex: 0">
+
+      <!-- MOVA -->
+      <a-gltf-model src="#mova" position="0 0.5 0" scale="0.3 0.3 0.3"></a-gltf-model>
+
+      <!-- ICONOS -->
+      <a-gltf-model src="#map" position="-0.5 0 0" scale="0.2 0.2 0.2"></a-gltf-model>
+      <a-gltf-model src="#like" position="0.5 0 0" scale="0.2 0.2 0.2"></a-gltf-model>
+      <a-gltf-model src="#flash" position="0 0.3 0.3" scale="0.2 0.2 0.2"></a-gltf-model>
+      <a-gltf-model src="#security" position="0 -0.3 0.3" scale="0.2 0.2 0.2"></a-gltf-model>
+      <a-gltf-model src="#love" position="0 0.3 -0.3" scale="0.2 0.2 0.2"></a-gltf-model>
+
+      <!-- LOGO -->
+      <a-gltf-model src="#logo" position="0 -0.5 0" scale="0.3 0.3 0.3"></a-gltf-model>
+
+    </a-entity>
+
+  </a-scene>
+</body>
+</html>
