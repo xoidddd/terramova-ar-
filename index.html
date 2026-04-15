@@ -1,50 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>TERRAMOVA AR</title>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+    <style>
+      body { margin: 0; overflow: hidden; }
+    </style>
+  </head>
+  <body>
+    <a-scene mindar-image="imageTargetSrc: targets.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" preserveDrawingBuffer="true" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      
+      <a-assets>
+        <a-asset-item id="mova" src="mova.glb"></a-asset-item>
+        <a-asset-item id="logo" src="logocolores.glb"></a-asset-item>
+        <a-asset-item id="map" src="mapfin.glb"></a-asset-item>
+        <a-asset-item id="like" src="likefin.glb"></a-asset-item>
+      </a-assets>
 
-  <script src="https://unpkg.com/mind-ar@1.2.3/dist/mindar-image.prod.js"></script>
-  <script src="https://unpkg.com/aframe@1.4.2/dist/aframe.min.js"></script>
-</head>
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-<body>
-  <a-scene 
-    mindar-image="imageTargetSrc: targets.mind;"
-    color-space="sRGB" 
-    embedded 
-    vr-mode-ui="enabled: false"
-    device-orientation-permission-ui="enabled: true">
+      <a-entity mindar-image-target="targetIndex: 0">
+        
+        <a-gltf-model src="#mova" position="0 0.6 0.1" scale="0.2 0.2 0.2" 
+          animation="property: position; to: 0 0.7 0.1; dur: 2000; dir: alternate; loop: true">
+        </a-gltf-model>
 
-    <a-assets>
-      <a-asset-item id="mova" src="mova.glb"></a-asset-item>
-      <a-asset-item id="map" src="mapfin.glb"></a-asset-item>
-      <a-asset-item id="like" src="likefin.glb"></a-asset-item>
-      <a-asset-item id="flash" src="flashfin.glb"></a-asset-item>
-      <a-asset-item id="security" src="segurityfin.glb"></a-asset-item>
-      <a-asset-item id="love" src="notilovefin.glb"></a-asset-item>
-      <a-asset-item id="logo" src="logocolores.glb"></a-asset-item>
-    </a-assets>
+        <a-gltf-model src="#logo" position="0 -0.6 0.1" scale="0.2 0.2 0.2"></a-gltf-model>
 
-    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+        <a-gltf-model src="#map" position="-0.5 0 0.1" scale="0.15 0.15 0.15"></a-gltf-model>
+        <a-gltf-model src="#like" position="0.5 0 0.1" scale="0.15 0.15 0.15"></a-gltf-model>
 
-    <a-entity mindar-image-target="targetIndex: 0">
-
-      <!-- MOVA -->
-      <a-gltf-model src="#mova" position="0 0.5 0" scale="0.3 0.3 0.3"></a-gltf-model>
-
-      <!-- ICONOS -->
-      <a-gltf-model src="#map" position="-0.5 0 0" scale="0.2 0.2 0.2"></a-gltf-model>
-      <a-gltf-model src="#like" position="0.5 0 0" scale="0.2 0.2 0.2"></a-gltf-model>
-      <a-gltf-model src="#flash" position="0 0.3 0.3" scale="0.2 0.2 0.2"></a-gltf-model>
-      <a-gltf-model src="#security" position="0 -0.3 0.3" scale="0.2 0.2 0.2"></a-gltf-model>
-      <a-gltf-model src="#love" position="0 0.3 -0.3" scale="0.2 0.2 0.2"></a-gltf-model>
-
-      <!-- LOGO -->
-      <a-gltf-model src="#logo" position="0 -0.5 0" scale="0.3 0.3 0.3"></a-gltf-model>
-
-    </a-entity>
-
-  </a-scene>
-</body>
+      </a-entity>
+    </a-scene>
+  </body>
 </html>
